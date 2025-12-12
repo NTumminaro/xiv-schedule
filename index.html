@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIV Weekly Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="top-left">
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-view="schedule">📋 Schedule</button>
+                    <button class="nav-btn" data-view="currency">💰 Currency</button>
+                </nav>
+                <div class="day-tabs">
+                    <button class="day-tab" data-day="Tuesday">Tue</button>
+                    <button class="day-tab" data-day="Wednesday">Wed</button>
+                    <button class="day-tab" data-day="Thursday">Thu</button>
+                    <button class="day-tab" data-day="Friday">Fri</button>
+                    <button class="day-tab" data-day="Saturday">Sat</button>
+                    <button class="day-tab" data-day="Sunday">Sun</button>
+                    <button class="day-tab" data-day="Monday">Mon</button>
+                </div>
+            </div>
+            <div class="top-right">
+                <div class="progress-group">
+                    <div class="progress-mini" title="Daily Progress">
+                        <span class="progress-label">📅</span>
+                        <span id="daily-progress-text">0/0</span>
+                        <div class="progress-bar-mini">
+                            <div id="daily-progress-fill" class="progress-fill-mini"></div>
+                        </div>
+                    </div>
+                    <div class="progress-mini weekly" title="Weekly Progress">
+                        <span class="progress-label">📆</span>
+                        <span id="weekly-progress-text">0/0</span>
+                        <div class="progress-bar-mini">
+                            <div id="weekly-progress-fill" class="progress-fill-mini weekly"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reset-timer">
+                    <span class="timer-label">Reset:</span>
+                    <span id="countdown" class="countdown">--:--:--</span>
+                </div>
+                <div class="controls">
+                    <button id="toggle-hide" class="control-btn" title="Hide Completed">👁️</button>
+                    <button id="clear-day" class="control-btn" title="Reset Day">🔄</button>
+                    <button id="clear-all" class="control-btn danger" title="Reset All">🗑️</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Schedule View -->
+        <main id="schedule-view" class="view active">
+            <!-- Weekly Trackers -->
+            <div class="weekly-trackers">
+                <div class="tracker">
+                    <span class="tracker-icon">📖</span>
+                    <span class="tracker-label">WT</span>
+                    <div class="tracker-controls">
+                        <button class="tracker-btn" data-tracker="tails" data-action="dec">−</button>
+                        <span class="tracker-value" id="tails-count">0</span>
+                        <span class="tracker-max">/9</span>
+                        <button class="tracker-btn" data-tracker="tails" data-action="inc">+</button>
+                    </div>
+                    <button class="tracker-toggle" id="tails-book" data-tracker="tailsBook" title="Book picked up?">📕</button>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">🎰</span>
+                    <span class="tracker-label">Cactpot</span>
+                    <button class="tracker-toggle" data-tracker="cactpot" title="Ticket bought?">🎫</button>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">⚔️</span>
+                    <span class="tracker-label">Arcadion</span>
+                    <button class="tracker-toggle" data-tracker="arcadion" title="Done?">✓</button>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">🏰</span>
+                    <span class="tracker-label">Alliance</span>
+                    <button class="tracker-toggle" data-tracker="alliance" title="Done?">✓</button>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">🎭</span>
+                    <span class="tracker-label">Faux</span>
+                    <button class="tracker-toggle" data-tracker="faux" title="Done?">✓</button>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">📦</span>
+                    <span class="tracker-label">Custom</span>
+                    <div class="tracker-controls">
+                        <button class="tracker-btn" data-tracker="custom" data-action="dec">−</button>
+                        <span class="tracker-value" id="custom-count">0</span>
+                        <span class="tracker-max">/6</span>
+                        <button class="tracker-btn" data-tracker="custom" data-action="inc">+</button>
+                    </div>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">🏝️</span>
+                    <span class="tracker-label">Island</span>
+                    <button class="tracker-toggle" data-tracker="island" title="Done?">✓</button>
+                </div>
+                <div class="tracker">
+                    <span class="tracker-icon">🏯</span>
+                    <span class="tracker-label">Doman</span>
+                    <button class="tracker-toggle" data-tracker="doman" title="Done?">✓</button>
+                </div>
+            </div>
+            <div id="tasks-container" class="tasks-grid">
+                <!-- Tasks populated by JS -->
+            </div>
+        </main>
+
+        <!-- Currency View -->
+        <main id="currency-view" class="view">
+            <div class="currency-layout">
+                <div class="currency-list" id="currency-list">
+                    <!-- Currency list populated by JS -->
+                </div>
+                <div class="currency-detail" id="currency-detail">
+                    <div class="detail-placeholder">
+                        <span>👈</span>
+                        <p>Select a currency</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
